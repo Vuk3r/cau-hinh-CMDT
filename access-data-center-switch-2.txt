@@ -1,0 +1,62 @@
+! ================== DATA CENTER - SW1
+
+en
+conf t
+
+vlan 150
+name DHCP-150
+interface fa0/3
+switchport mode access
+switchport access vlan 150
+no shutdown
+
+vlan 151
+name HTTP-150
+interface fa0/4
+switchport mode access
+switchport access vlan 151
+no shutdown
+
+vlan 152
+name EMAIL-152
+interface fa0/5
+switchport mode access
+switchport access vlan 152
+no shutdown
+
+interface range fa0/1-2
+switchport mode trunk
+switchport trunk allowed vlan 150,151,152
+no shutdown
+
+
+! ================== DATA CENTER - SW2
+
+en
+conf t
+
+vlan 153
+name DHCPv6-153
+interface fa0/3
+switchport mode access
+switchport access vlan 153
+no shutdown
+
+vlan 154
+name DNS-154
+interface fa0/4
+switchport mode access
+switchport access vlan 154
+no shutdown
+
+vlan 155
+name FTP-155
+interface fa0/5
+switchport mode access
+switchport access vlan 155
+no shutdown
+
+interface range fa0/1-2
+switchport mode trunk
+switchport trunk allowed vlan 153,154,155
+no shutdown

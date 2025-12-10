@@ -1,0 +1,20 @@
+! switch ISP =============
+en
+conf t
+
+vlan 8
+name GOOGLE
+vlan 10
+name HACKER
+
+interface fa0/1
+switchport mode trunk
+switchport trunk allowed vlan 8,10
+
+interface fa0/2
+switchport mode access
+switchport access vlan 8
+
+interface fa0/3
+switchport mode access
+switchport access vlan 10
