@@ -6,7 +6,7 @@ Bao nhiêu thiết bị khác nhau về loại và chức năng sẽ có 1 cấu
 
 ## NHỮNG THỨ CẦN BỔ SUNG
 
-*** Quy trình được thực hiện theo trình tự và được áp dụng với toàn bộ các  tầng cùng 1 lúc. Việc phân tách cấu hình đã giúp fix lệnh nhanh. 
+*** Quy trình được thực hiện theo trình tự và được áp dụng với toàn bộ các  tầng cùng 1 lúc. Việc phân tách cấu hình đã giúp fix lệnh nhanh. ***
 
 1. Cấu hình DHCP
 
