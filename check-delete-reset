@@ -1,0 +1,14 @@
+! xoa vlan va reset sw layer 3
+exit
+exit
+delete vlan.dat
+yes
+
+reload
+
+
+! show ospf neighbour 
+show ip ospf neighbor 
+
+! delete ospf
+clear ip ospf process
