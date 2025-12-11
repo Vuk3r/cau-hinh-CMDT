@@ -37,11 +37,11 @@ en
 conf t
 
 vlan 21
-VLAN21-hanhchinh
+name VLAN21-hanhchinh
 vlan 22
-VLAN23-phapche
+name VLAN23-phapche
 vlan 23
-VLAN22-ketoan
+name VLAN22-ketoan
 
 !pc + Access point + printer
 interface range fa0/4-6
@@ -71,11 +71,11 @@ en
 conf t
 
 vlan 31
-VLAN33-studio
+name VLAN33-studio
 vlan 32
-VLAN32-mkt
+name VLAN32-mkt
 vlan 33
-VLAN31-sales
+name VLAN31-sales
 
 
 !pc + Access point + printer

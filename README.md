@@ -8,18 +8,14 @@ Bao nhiêu thiết bị khác nhau về loại và chức năng sẽ có 1 cấu
 
 *** Quy trình được thực hiện theo trình tự và được áp dụng với toàn bộ các  tầng cùng 1 lúc. Việc phân tách cấu hình đã giúp fix lệnh nhanh. ***
 
-1. Cấu hình DHCP
+1. VLAN + SVI + IP helper (L2 foundation)
 
-2. Cấu hình định tuyến nội bộ
+2. DHCP
 
-3. Cấu hình dự phòng cho nội bộ
+3. Routing (OSPF/EIGRP)
 
-4. Cấu hình tường lửa
+4. NAT (Internet edge)
 
-5. Cấu hình định tuyến + DHCP + NAT cho Router Edge
+5. Firewall (ACL/ZPF/Policies)
 
-6. Cấu hình dự phòng cho Router Edge
-
-7. Cấu hình ACL cho Router Edge
-
-8. Cấu hình NAT
+6. Redundancy (HSRP, EtherChannel, HA)

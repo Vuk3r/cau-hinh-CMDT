@@ -1,0 +1,30 @@
+! Xoa cau hinh
+
+interface vlan 11
+no ip address
+
+interface vlan 12
+no ip address
+
+interface vlan 13
+no ip address
+
+interface vlan 21
+no ip address
+
+interface vlan 22
+no ip address
+
+interface vlan 23
+no ip address
+
+interface vlan 31
+no ip address
+
+interface vlan 32
+no ip address
+
+interface vlan 33
+no ip address
+
+
