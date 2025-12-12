@@ -777,28 +777,25 @@ network 10.43.208.252 0.0.0.3 area 0
 ip route 0.0.0.0 0.0.0.0 10.43.207.254
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-! DHCP - ip helper for DHCP(10.43.150.2)
-interface vlan 41
-ip helper-address 10.43.150.2
-interface vlan 42
-ip helper-address 10.43.150.2
-interface vlan 43
-ip helper-address 10.43.150.2
+# ! DHCP - ip helper for DHCP(10.43.150.2)
+# interface vlan 41
+# ip helper-address 10.43.150.2
+# interface vlan 42
+# ip helper-address 10.43.150.2
+# interface vlan 43
+# ip helper-address 10.43.150.2
 
-interface vlan 51
-ip helper-address 10.43.150.2
-interface vlan 52
-ip helper-address 10.43.150.2
-interface vlan 53
-ip helper-address 10.43.150.2
+# interface vlan 51
+# ip helper-address 10.43.150.2
+# interface vlan 52
+# ip helper-address 10.43.150.2
+# interface vlan 53
+# ip helper-address 10.43.150.2
 
-interface vlan 61
-ip helper-address 10.43.150.2
-interface vlan 62
-ip helper-address 10.43.150.2
-interface vlan 63
-ip helper-address 10.43.150.22
-
-
-
+# interface vlan 61
+# ip helper-address 10.43.150.2
+# interface vlan 62
+# ip helper-address 10.43.150.2
+# interface vlan 63
+# ip helper-address 10.43.150.22
 

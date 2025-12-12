@@ -11,7 +11,7 @@ switchport access vlan 150
 no shutdown
 
 vlan 151
-name HTTP-150
+name HTTP-151
 interface fa0/4
 switchport mode access
 switchport access vlan 151
