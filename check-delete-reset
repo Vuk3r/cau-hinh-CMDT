@@ -1,6 +1,6 @@
 ! xoa vlan va reset sw layer 3
-exit
-exit
+en
+
 delete vlan.dat
 yes
 

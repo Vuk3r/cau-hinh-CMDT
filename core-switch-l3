@@ -3,15 +3,23 @@
 en
 conf t
 
-
-
 ! === IP FOR INTERFACE === !
 
 interface range fa0/1-9
 no switchport
 
+! = CORE -> FW = !
+interface fa0/1
+ip address 10.43.221.253 255.255.255.252
+no shutdown
+interface fa0/2
+ip address 10.43.222.253 255.255.255.252
+no shutdown
+
+! = CORE -> DIS = !
 interface fa0/4
 ip address 10.43.201.254 255.255.255.252
+ip helper-address 10.43.150.2
 no shutdown
 interface fa0/5
 ip address 10.43.203.254 255.255.255.252
@@ -97,7 +105,7 @@ switchport trunk allowed vlan 153,154,155
 no shutdown
 
 ! === TRUNK FOR DATA CENTER === !
-trunk
+!trunk
 interface fa0/10
 switchport trunk encapsulation dot1q
 switchport mode trunk
