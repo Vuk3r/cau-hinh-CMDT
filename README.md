@@ -8,14 +8,14 @@ Bao nhiêu thiết bị khác nhau về loại và chức năng sẽ có 1 cấu
 
 *** Quy trình được thực hiện theo trình tự và được áp dụng với toàn bộ các  tầng cùng 1 lúc. Việc phân tách cấu hình đã giúp fix lệnh nhanh. ***
 
-1. VLAN + SVI + IP helper (L2 foundation)
+1. VLAN + SVI
 
 2. DHCP
 
-3. Routing (OSPF/EIGRP)
+3. Routing (OSPF)
 
 4. NAT (Internet edge)
 
-5. Firewall (ACL/ZPF/Policies)
+5. Firewall (ACL)
 
-6. Redundancy (HSRP, EtherChannel, HA)
+6. Redundancy (HSRP)
