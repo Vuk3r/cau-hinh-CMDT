@@ -8,14 +8,34 @@ Bao nhiêu thiết bị khác nhau về loại và chức năng sẽ có 1 cấu
 
 *** Quy trình được thực hiện theo trình tự và được áp dụng với toàn bộ các  tầng cùng 1 lúc. Việc phân tách cấu hình đã giúp fix lệnh nhanh. ***
 
-1. VLAN + SVI
+1. VLAN + SVI + IP
 
 2. DHCP
 
-3. Routing (OSPF)
+3. Routing (OSPF + Static)
+
 
 4. NAT (Internet edge)
 
 5. Firewall (ACL)
 
 6. Redundancy (HSRP)
+
+
+### FOLLOW UP TASK ###
+
+VLAN + IP
+
+[+] Đã xong chia VLAN, IP
+
+DHCP:
+
+[+] Đã xong DHCP cho tầng 1,2,3 (Gateway đã được set về .254 - trùng với ip của HSRP)
+
+[-] 
+
+[+] Đã xong được HSRP cho tầng 1,2,3
+
+[+] Đã xong định tuyến lên Core của tầng 1,2,3
+
+

@@ -1,4 +1,3 @@
-
 ! =========== CORE 1 ===========:
 en
 conf t
@@ -37,6 +36,8 @@ interface fa0/9
 ip address 10.43.211.254 255.255.255.252
 no shutdown
 
+
+! === ROUTING === !
 
 ip routing
 !tmp ip ra fw. chua co HSRP
@@ -118,4 +119,3 @@ switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport trunk allowed vlan 153,154,155
 no shutdown
-
