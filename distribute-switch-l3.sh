@@ -61,6 +61,18 @@ interface vlan 33
 ip address 10.43.34.1 255.255.255.0
 no shutdown
 
+!routing 
+interface fa0/1
+no switchport
+ip address 10.43.201.253 255.255.255.0
+no shutdown
+!routing 
+ip routing
+interface fa0/2
+no switchport
+ip address 10.43.202.253 255.255.255.252
+no shutdown
+
 !trunk
 interface fa0/3
 switchport trunk encapsulation dot1q
@@ -80,31 +92,18 @@ switchport mode trunk
 switchport trunk allowed vlan 31,32,33
 no shutdown
 
-!routing 
-interface fa0/1
-no switchport
-ip address 10.43.201.253 255.255.255.252
-no shutdown
-!routing 
-ip routing
-interface fa0/2
-no switchport
-ip address 10.43.202.253 255.255.255.252
-no shutdown
-
 router ospf 1
 !id cho tang 1
 router-id 1.1.1.1
 ! full vlan tang 1
 network 10.43.16.0 0.0.3.255 area 0   
 ! cac p2p
-network 10.43.201.252 0.0.0.3 area 0
-network 10.43.202.252 0.0.0.3 area 0
+network 10.43.201.0 0.0.0.255 area 0
+network 10.43.202.0 0.0.0.255 area 0
 
 ! gui ra mang internet
-ip route 0.0.0.0 0.0.0.0 10.43.201.254
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
+ip route 0.0.0.0 0.0.0.0 10.43.201.3 1
+ip route 0.0.0.0 0.0.0.0 10.43.202.3 10
 ! DHCP - ip helper for DHCP(10.43.150.2)
 interface vlan 11
 ip helper-address 10.43.150.2
@@ -138,46 +137,70 @@ standby 11 preempt
 interface vlan 12
 standby 11 ip 10.43.17.254
 standby 11 priority 120
+standby 11 track FastEthernet0/1
+standby 11 track FastEthernet0/2
+standby 11 track FastEthernet0/3
 standby 11 preempt
 
 interface vlan 13
 standby 11 ip 10.43.18.254
 standby 11 priority 120
+standby 11 track FastEthernet0/1
+standby 11 track FastEthernet0/2
+standby 11 track FastEthernet0/3
 standby 11 preempt
 
 ! = TANG 2 = !
 
 interface vlan 21
-standby 11 ip 10.43.24.254
-standby 11 priority 110
-standby 11 preempt
+standby 22 ip 10.43.24.254
+standby 22 priority 110
+standby 11 track FastEthernet0/1
+standby 11 track FastEthernet0/2
+standby 11 track FastEthernet0/3
+standby 22 preempt
 
 interface vlan 22
-standby 11 ip 10.43.25.254
-standby 11 priority 110
-standby 11 preempt
+standby 22 ip 10.43.25.254
+standby 22 priority 110
+standby 11 track FastEthernet0/1
+standby 11 track FastEthernet0/2
+standby 11 track FastEthernet0/3
+standby 22 preempt
 
 interface vlan 23
-standby 11 ip 10.43.26.254
-standby 11 priority 110
-standby 11 preempt
+standby 22 ip 10.43.26.254
+standby 22 priority 110
+standby 11 track FastEthernet0/1
+standby 11 track FastEthernet0/2
+standby 11 track FastEthernet0/3
+standby 22 preempt
 
 ! = TANG 3 = !
 
 interface vlan 31
-standby 11 ip 10.43.32.254
-standby 11 priority 100
-standby 11 preempt
+standby 33 ip 10.43.32.254
+standby 33 priority 100
+standby 11 track FastEthernet0/1
+standby 11 track FastEthernet0/2
+standby 11 track FastEthernet0/3
+standby 33 preempt
 
 interface vlan 32
-standby 11 ip 10.43.33.254
-standby 11 priority 100
-standby 11 preempt
+standby 33 ip 10.43.33.254
+standby 33 priority 100
+standby 11 track FastEthernet0/1
+standby 11 track FastEthernet0/2
+standby 11 track FastEthernet0/3
+standby 33 preempt
 
 interface vlan 33
-standby 11 ip 10.43.34.254
-standby 11 priority 100
-standby 11 preempt
+standby 33 ip 10.43.34.254
+standby 33 priority 100
+standby 11 track FastEthernet0/1
+standby 11 track FastEthernet0/2
+standby 11 track FastEthernet0/3
+standby 33 preempt
 
 
 ! =============== Distribute Tang 2 =============== !
@@ -264,7 +287,7 @@ no shutdown
 !routing 
 interface fa0/1
 no switchport
-ip address 10.43.203.253 255.255.255.252
+ip address 10.43.203.2 255.255.255.0
 no shutdown
 !routing 
 ip routing
@@ -274,10 +297,10 @@ ip address 10.43.204.253 255.255.255.252
 no shutdown
 
 router ospf 1
-!id cho tang 1
+!id cho tang 2
 router-id 2.2.2.2
-! full vlan tang 2
-network 10.43.24.0 0.0.3.255 area 0   
+! full vlan tang 2 
+network 10.43.24.0 0.0.3.255 area 0
 ! cac p2p
 network 10.43.203.252 0.0.0.3 area 0
 network 10.43.204.252 0.0.0.3 area 0
@@ -444,7 +467,7 @@ no shutdown
 !routing 
 interface fa0/1
 no switchport
-ip address 10.43.205.253 255.255.255.252
+ip address 10.43.205.2 255.255.255.0
 no shutdown
 !routing 
 ip routing
@@ -454,7 +477,7 @@ ip address 10.43.206.253 255.255.255.252
 no shutdown
 
 router ospf 1
-!id cho tang 1
+!id cho tang 3
 router-id 3.3.3.3
 ! full vlan tang 2
 network 10.43.24.0 0.0.3.255 area 0
@@ -572,7 +595,7 @@ no shutdown
 !routing 
 interface fa0/1
 no switchport
-ip address 10.43.207.253 255.255.255.252
+ip address 10.43.207.2 255.255.255.0
 no shutdown
 !routing 
 ip routing
@@ -758,7 +781,7 @@ no shutdown
 !routing 
 interface fa0/1
 no switchport
-ip address 10.43.207.253 255.255.255.252
+ip address 10.43.207.2 255.255.255.0
 no shutdown
 !routing 
 ip routing
@@ -892,7 +915,7 @@ no shutdown
 !routing 
 interface fa0/1
 no switchport
-ip address 10.43.207.253 255.255.255.252
+ip address 10.43.207.2 255.255.255.0
 no shutdown
 !routing 
 ip routing

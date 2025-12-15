@@ -2,6 +2,7 @@
 
 en
 conf t
+hostname EDGE-1
 
 interface GigabitEthernet0/0
 ip address 18.18.18.18 255.0.0.0
@@ -9,12 +10,12 @@ ip address 18.18.18.18 255.0.0.0
 interface GigabitEthernet0/1
 ip address 10.43.231.254 255.255.255.252
 interface GigabitEthernet0/2
-ip address 10.43.232.254 255.255.255.252
-
-!router ospf 1
-!network 10.43.232.252 0.0.0.3 area 0
+ip address 10.43.233.254 255.255.255.252
 
 ip route 0.0.0.0 0.0.0.0 18.18.18.1
+
+ip route 10.0.0.0 255.0.0.0 10.43.231.253 1
+ip route 10.0.0.0 255.0.0.0 10.43.233.253 10
 
 ! NAT
 interface GigabitEthernet0/1
@@ -30,19 +31,21 @@ ip nat inside source list 1 interface GigabitEthernet0/0 overload
 
 en
 conf t
+hostname EDGE-2
 
 interface GigabitEthernet0/0
 ip address 36.36.36.36 255.0.0.0
 
 interface GigabitEthernet0/1
-ip address 10.43.233.254 255.255.255.252
+ip address 10.43.232.254 255.255.255.252
 interface GigabitEthernet0/2
 ip address 10.43.234.254 255.255.255.252
 
-!router ospf 1
-!network 10.43.233.252 0.0.0.3 area 0
-
 ip route 0.0.0.0 0.0.0.0 36.36.36.1
+
+! 1 la uu tien hon
+ip route 10.0.0.0 255.0.0.0 10.43.234.253 1 
+ip route 10.0.0.0 255.0.0.0 10.43.232.253 10
 
 ! NAT
 interface GigabitEthernet0/1
