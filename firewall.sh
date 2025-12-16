@@ -38,6 +38,9 @@ route inside2 10.0.0.0 255.0.0.0 10.43.223.253 10
 route outside1 0.0.0.0 0.0.0.0 10.43.231.254 1
 route outside2 0.0.0.0 0.0.0.0 10.43.232.254 10
 
+end
+wr mem
+
 ! ======== ASA 2 ======== ! 
 en
 conf t
@@ -69,8 +72,12 @@ no shutdown
 
 
 ! muon 2 interface inside1/2 muon di toi mang dich 10.0.0.0/8 thi di qua 1 trong 2 mang nay
-route inside2 10.0.0.0 255.0.0.0 10.43.224.253 1
-route inside1 10.0.0.0 255.0.0.0 10.43.222.253 10
+route inside1 10.0.0.0 255.0.0.0 10.43.224.253 1
+route inside2 10.0.0.0 255.0.0.0 10.43.222.253 10
 
 route outside2 0.0.0.0 0.0.0.0 10.43.234.254 1
 route outside1 0.0.0.0 0.0.0.0 10.43.233.254 10
+
+end
+wr mem
+

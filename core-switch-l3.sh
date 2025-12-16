@@ -17,23 +17,22 @@ no shutdown
 
 ! = CORE -> DIS = !
 interface fa0/4
-ip address 10.43.201.3 255.255.255.252
-!ip helper-address 10.43.150.2
+ip address 10.43.201.254 255.255.255.252
 no shutdown
 interface fa0/5
-ip address 10.43.203.253 255.255.255.252
+ip address 10.43.203.254 255.255.255.252
 no shutdown
 interface fa0/6
-ip address 10.43.205.253 255.255.255.252
+ip address 10.43.205.254 255.255.255.252
 no shutdown
 interface fa0/7
-ip address 10.43.207.253 255.255.255.252
+ip address 10.43.207.254 255.255.255.252
 no shutdown
 interface fa0/8
-ip address 10.43.209.253 255.255.255.252
+ip address 10.43.209.254 255.255.255.252
 no shutdown
 interface fa0/9
-ip address 10.43.211.253 255.255.255.252
+ip address 10.43.211.254 255.255.255.252
 no shutdown
 
 
@@ -45,12 +44,18 @@ ip route 0.0.0.0 0.0.0.0 10.43.221.254 1
 ip route 0.0.0.0 0.0.0.0 10.43.222.254 10
 
 router ospf 1 
+router-id 10.10.10.10
+!p2p
 network 10.43.201.252 0.0.0.3 area 0
+router ospf 2
+router-id 20.20.20.20
+!p2p 
 network 10.43.203.252 0.0.0.3 area 0
+router ospf 3
+router-id 30.30.30.30
+!p2p 
 network 10.43.205.252 0.0.0.3 area 0
-network 10.43.207.252 0.0.0.3 area 0
-network 10.43.209.252 0.0.0.3 area 0
-network 10.43.211.252 0.0.0.3 area 0
+
 
 ! === DATA CENTER === !
 vlan 150
@@ -118,9 +123,11 @@ switchport mode trunk
 switchport trunk allowed vlan 153,154,155
 no shutdown
 
+end
+wr mem
 
 
-! =========== CORE 2 ===========:
+! ===================== CORE 2 =====================
 en
 conf t
 hostname CORE-2
@@ -140,7 +147,6 @@ no shutdown
 ! = CORE -> DIS = !
 interface fa0/4
 ip address 10.43.202.253 255.255.255.252
-ip helper-address 10.43.150.2
 no shutdown
 interface fa0/5
 ip address 10.43.204.253 255.255.255.252
@@ -166,12 +172,18 @@ ip route 0.0.0.0 0.0.0.0 10.43.224.254 1
 ip route 0.0.0.0 0.0.0.0 10.43.223.254 10
 
 router ospf 1 
+router-id 10.10.10.10
+!p2p
 network 10.43.202.252 0.0.0.3 area 0
+router ospf 2
+router-id 20.20.20.20
+!p2p 
 network 10.43.204.252 0.0.0.3 area 0
+router ospf 3
+router-id 30.30.30.30
+!p2p 
 network 10.43.206.252 0.0.0.3 area 0
-network 10.43.208.252 0.0.0.3 area 0
-network 10.43.210.252 0.0.0.3 area 0
-network 10.43.212.252 0.0.0.3 area 0
+
 
 ! === DATA CENTER === !
 vlan 150
@@ -238,3 +250,7 @@ switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport trunk allowed vlan 153,154,155
 no shutdown
+
+end
+wr mem
+
