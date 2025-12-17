@@ -43,6 +43,9 @@ router-id 10.10.10.11
 network 10.43.201.252 0.0.0.3 area 0
 network 10.43.203.252 0.0.0.3 area 0
 network 10.43.205.252 0.0.0.3 area 0
+network 10.43.207.252 0.0.0.3 area 0
+network 10.43.209.252 0.0.0.3 area 0
+network 10.43.211.252 0.0.0.3 area 0
 
 ip routing
 !tmp ip ra fw. chua co HSRP
@@ -163,6 +166,9 @@ router-id 20.20.20.11
 network 10.43.202.252 0.0.0.3 area 0
 network 10.43.204.252 0.0.0.3 area 0
 network 10.43.206.252 0.0.0.3 area 0
+network 10.43.208.252 0.0.0.3 area 0
+network 10.43.210.252 0.0.0.3 area 0
+network 10.43.212.252 0.0.0.3 area 0
 
 ip routing
 !tmp ip ra fw. chua co HSRP
