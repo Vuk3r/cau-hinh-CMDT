@@ -92,20 +92,23 @@ switchport mode trunk
 switchport trunk allowed vlan 31,32,33
 no shutdown
 
+
+! ==== ROUTING  ==== !
+
 router ospf 1
-!id cho tang 1
-router-id 1.1.1.1
-! cac p2p
+router-id 2.2.2.1
 network 10.43.201.252 0.0.0.3 area 0
 network 10.43.202.252 0.0.0.3 area 0
-! full vlan tang 1,2,3
-network 10.43.16.0 0.0.3.255 area 0   
-network 10.43.24.0 0.0.3.255 area 0  
-network 10.43.32.0 0.0.3.255 area 0   
+
+network 10.43.16.0 0.0.3.255 area 0
+network 10.43.24.0 0.0.3.255 area 0
+network 10.43.32.0 0.0.3.255 area 0
 
 ! gui ra mang internet
 ip route 0.0.0.0 0.0.0.0 10.43.201.254 1
 ip route 0.0.0.0 0.0.0.0 10.43.202.254 10
+
+
 ! DHCP - ip helper for DHCP(10.43.150.2)
 interface vlan 11
 ip helper-address 10.43.150.2
@@ -300,19 +303,21 @@ no switchport
 ip address 10.43.204.253 255.255.255.252
 no shutdown
 
-router ospf 2
-!id cho tang 2
+! ==== ROUTING ==== !
+en
+conf t
+router ospf 1
 router-id 2.2.2.2
-! full vlan tang 2 
-network 10.43.16.0 0.0.3.255 area 0
-network 10.43.24.0 0.0.3.255 area 0
-network 10.43.32.0 0.0.3.255 area 0
-! cac p2p
 network 10.43.203.252 0.0.0.3 area 0
 network 10.43.204.252 0.0.0.3 area 0
 
+network 10.43.16.0 0.0.3.255 area 0
+network 10.43.24.0 0.0.3.255 area 0
+network 10.43.32.0 0.0.3.255 area 0
+
 ! gui ra mang internet
-ip route 0.0.0.0 0.0.0.0 10.43.203.254
+ip route 0.0.0.0 0.0.0.0 10.43.203.254 1
+ip route 0.0.0.0 0.0.0.0 10.43.204.254 10
 
 ! DHCP - ip helper for DHCP(10.43.150.2)
 interface vlan 11
@@ -484,21 +489,23 @@ switchport mode trunk
 switchport trunk allowed vlan 31,32,33
 no shutdown
 
+! ==== ROUTING  ==== !
 
+en
+conf t
 router ospf 1
-!id cho tang 3
-router-id 3.3.3.3
-! full vlan tang 1
-network 10.43.16.0 0.0.3.255 area 0
-! full vlan tang 2
-network 10.43.24.0 0.0.3.255 area 0
-! full vlan tang 3
-network 10.43.32.0 0.0.3.255 area 0
-! cac p2p   
+router-id 2.2.2.3
 network 10.43.205.252 0.0.0.3 area 0
 network 10.43.206.252 0.0.0.3 area 0
+
+network 10.43.16.0 0.0.3.255 area 0
+network 10.43.24.0 0.0.3.255 area 0
+network 10.43.32.0 0.0.3.255 area 0
+
 ! routing ra mang internet
-ip route 0.0.0.0 0.0.0.0 10.43.205.254
+ip route 0.0.0.0 0.0.0.0 10.43.205.254 1
+ip route 0.0.0.0 0.0.0.0 10.43.206.254 10
+
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 ! DHCP - ip helper for DHCP(10.43.150.2)

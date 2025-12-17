@@ -38,23 +38,16 @@ no shutdown
 
 ! === ROUTING === !
 
+router ospf 1
+router-id 10.10.10.11
+network 10.43.201.252 0.0.0.3 area 0
+network 10.43.203.252 0.0.0.3 area 0
+network 10.43.205.252 0.0.0.3 area 0
+
 ip routing
 !tmp ip ra fw. chua co HSRP
 ip route 0.0.0.0 0.0.0.0 10.43.221.254 1
 ip route 0.0.0.0 0.0.0.0 10.43.222.254 10
-
-router ospf 1 
-router-id 10.10.10.10
-!p2p
-network 10.43.201.252 0.0.0.3 area 0
-router ospf 2
-router-id 20.20.20.20
-!p2p 
-network 10.43.203.252 0.0.0.3 area 0
-router ospf 3
-router-id 30.30.30.30
-!p2p 
-network 10.43.205.252 0.0.0.3 area 0
 
 
 ! === DATA CENTER === !
@@ -126,7 +119,6 @@ no shutdown
 end
 wr mem
 
-
 ! ===================== CORE 2 =====================
 en
 conf t
@@ -146,43 +138,36 @@ no shutdown
 
 ! = CORE -> DIS = !
 interface fa0/4
-ip address 10.43.202.253 255.255.255.252
+ip address 10.43.202.254 255.255.255.252
 no shutdown
 interface fa0/5
-ip address 10.43.204.253 255.255.255.252
+ip address 10.43.204.254 255.255.255.252
 no shutdown
 interface fa0/6
-ip address 10.43.206.253 255.255.255.252
+ip address 10.43.206.254 255.255.255.252
 no shutdown
 interface fa0/7
-ip address 10.43.208.253 255.255.255.252
+ip address 10.43.208.254 255.255.255.252
 no shutdown
 interface fa0/8
-ip address 10.43.210.253 255.255.255.252
+ip address 10.43.210.254 255.255.255.252
 no shutdown
 interface fa0/9
-ip address 10.43.212.253 255.255.255.252
+ip address 10.43.212.254 255.255.255.252
 no shutdown
 
 ! === ROUTING === !
+
+router ospf 1
+router-id 20.20.20.11
+network 10.43.202.252 0.0.0.3 area 0
+network 10.43.204.252 0.0.0.3 area 0
+network 10.43.206.252 0.0.0.3 area 0
 
 ip routing
 !tmp ip ra fw. chua co HSRP
 ip route 0.0.0.0 0.0.0.0 10.43.224.254 1
 ip route 0.0.0.0 0.0.0.0 10.43.223.254 10
-
-router ospf 1 
-router-id 10.10.10.10
-!p2p
-network 10.43.202.252 0.0.0.3 area 0
-router ospf 2
-router-id 20.20.20.20
-!p2p 
-network 10.43.204.252 0.0.0.3 area 0
-router ospf 3
-router-id 30.30.30.30
-!p2p 
-network 10.43.206.252 0.0.0.3 area 0
 
 
 ! === DATA CENTER === !

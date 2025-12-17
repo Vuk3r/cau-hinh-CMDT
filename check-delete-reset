@@ -13,7 +13,6 @@ show ip ospf neighbor
 ! delete ospf
 clear ip ospf process
 configure terminal
-no router ospf 1
 
 ! reset fw
 enable
@@ -22,3 +21,14 @@ y
 reload
 y
 no
+
+!!! CLEAR OSPF !!! 
+
+conf terminal
+no router ospf 1
+no router ospf 2
+no router ospf 3
+
+end
+clear ip ospf process
+
