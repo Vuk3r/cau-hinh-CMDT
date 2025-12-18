@@ -8,7 +8,7 @@ ip address 8.8.8.1 255.0.0.0
 
 interface gi0/0.10
 encapsulation dot1q 10
-ip address 10.10.10.1 255.0.0.0
+ip address 9.9.9.1 255.0.0.0
 no shutdown
 
 interface gi0/1

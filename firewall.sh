@@ -38,6 +38,11 @@ route inside2 10.0.0.0 255.0.0.0 10.43.223.253 10
 route outside1 0.0.0.0 0.0.0.0 10.43.231.254 1
 route outside2 0.0.0.0 0.0.0.0 10.43.232.254 10
 
+! ACL
+access-list BLOCK-HACKER extended deny ip host 9.9.9.9 any
+access-list BLOCK-HACKER extended permit ip any any
+access-group BLOCK-HACKER in interface outside1
+access-group BLOCK-HACKER in interface outside2
 end
 wr mem
 
@@ -77,6 +82,12 @@ route inside1 10.0.0.0 255.0.0.0 10.43.222.253 10
 
 route outside2 0.0.0.0 0.0.0.0 10.43.234.254 1
 route outside1 0.0.0.0 0.0.0.0 10.43.233.254 10
+
+! ACL
+access-list BLOCK-HACKER extended deny ip host 9.9.9.9 any
+access-list BLOCK-HACKER extended permit ip any any
+access-group BLOCK-HACKER in interface outside1
+access-group BLOCK-HACKER in interface outside2
 
 end
 wr mem
