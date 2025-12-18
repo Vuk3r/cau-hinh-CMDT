@@ -2,6 +2,7 @@
 en
 conf t
 host name CORE-1
+enable secret CORE-1
 ! === IP FOR INTERFACE === !
 
 interface range fa0/1-9
@@ -126,6 +127,14 @@ switchport mode trunk
 switchport trunk allowed vlan 153,154,155
 no shutdown
 
+ip domain-name vku.domain
+username admin password 123
+crypto key generate rsa
+1024
+line vty 0 4
+login local
+transport input ssh
+
 end
 wr mem
 
@@ -133,6 +142,7 @@ wr mem
 en
 conf t
 hostname CORE-2
+enable secret CORE-2
 ! === IP FOR INTERFACE === !
 
 interface range fa0/1-9
@@ -248,6 +258,14 @@ switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport trunk allowed vlan 153,154,155
 no shutdown
+
+ip domain-name vku.domain
+username admin password 123
+crypto key generate rsa
+1024
+line vty 0 4
+login local
+transport input ssh
 
 end
 wr mem

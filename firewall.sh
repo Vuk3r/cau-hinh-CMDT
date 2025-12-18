@@ -4,7 +4,9 @@
 ! ======== ASA 1 ======== ! 
 en
 conf t
-hostname ASA-2
+hostname ASA-1
+enable password ASA-1
+
 !
 interface GigabitEthernet1/1
 nameif outside1
@@ -50,7 +52,7 @@ wr mem
 en
 conf t
 hostname ASA-2
-
+enable password ASA-2
 interface GigabitEthernet1/1
 nameif outside1
 security-level 100

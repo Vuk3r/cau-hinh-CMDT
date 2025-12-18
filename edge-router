@@ -4,6 +4,15 @@
 en
 conf t
 hostname EDGE-1
+enable password EDGE-1
+
+ip domain-name vku.domain
+username admin password 123
+crypto key generate rsa
+1024
+line vty 0 4
+login local
+transport input ssh
 
 interface GigabitEthernet0/0
 ip address 36.36.36.36 255.0.0.0
@@ -38,6 +47,15 @@ wr m
 en
 conf t
 hostname EDGE-2
+enable password EDGE-2
+
+ip domain-name vku.domain
+username admin password 123
+crypto key generate rsa
+1024
+line vty 0 4
+login local
+transport input ssh
 
 interface GigabitEthernet0/0
 ip address 18.18.18.18 255.0.0.0

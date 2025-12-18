@@ -1,4 +1,4 @@
-ip domain-name lab.local
+ip domain-name vku.domain
 username admin password 123
 crypto key generate rsa
 1024

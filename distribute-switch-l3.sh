@@ -1,9 +1,20 @@
 
 ! =============== Distribute Tang 1 =============== !
+
 !swl3-1
 en
 conf t
+hostname DIS-1
+enable secret DIS-1
 ip routing
+
+ip domain-name vku.domain
+username admin password 123
+crypto key generate rsa
+1024
+line vty 0 4
+login local
+transport input ssh
 
 vlan 11
 name VLAN11-letan
@@ -207,13 +218,27 @@ standby 11 track FastEthernet0/2
 standby 11 track FastEthernet0/3
 standby 33 preempt
 
+
+! == SSH == !
+
+ip domain-name vku.domain
+username admin password 123
+crypto key generate rsa
+1024
+line vty 0 4
+login local
+transport input ssh
+
 end
 write mem
 
 ! =============== Distribute Tang 2 =============== !
+
 !swl3-1
 en
 conf t
+hostname DIS-2
+enable secret DIS-2
 ip routing
 
 vlan 11
@@ -393,14 +418,28 @@ standby 11 ip 10.43.34.254
 standby 11 priority 100
 standby 11 preempt
 
+
+! == SSH == !
+
+ip domain-name vku.domain
+username admin password 123
+crypto key generate rsa
+1024
+line vty 0 4
+login local
+transport input ssh
+
 end
 wr mem
 
 
 ! =============== Distribute Tang 3 =============== !
+
 !swl3-1
 en
 conf t
+hostname DIS-3
+enable secret DIS-3
 ip routing
 
 vlan 11
@@ -580,11 +619,26 @@ standby 11 ip 10.43.34.254
 standby 11 priority 100
 standby 11 preempt
 
+
+! == SSH == !
+
+ip domain-name vku.domain
+username admin password 123
+crypto key generate rsa
+1024
+line vty 0 4
+login local
+transport input ssh
+
+end
 wr mem
 ! =============== Distribute Tang 4 =============== !
+
 !swl3-1
 en
 conf t
+hostname DIS-4
+enable secret DIS-4
 ip routing
 
 vlan 41
@@ -782,14 +836,28 @@ standby 11 ip 10.43.66.254
 standby 11 priority 100
 standby 11 preempt
 
+
+! == SSH == !
+
+ip domain-name vku.domain
+username admin password 123
+crypto key generate rsa
+1024
+line vty 0 4
+login local
+transport input ssh
+
 end
 wr mem
 
 
 ! =============== Distribute Tang 5 =============== !
+
 !swl3-1
 en
 conf t
+hostname DIS-5
+enable secret DIS-5
 
 ip routing
 
@@ -988,14 +1056,28 @@ standby 11 ip 10.43.66.254
 standby 11 priority 110
 standby 11 preempt
 
+
+! == SSH == !
+
+ip domain-name vku.domain
+username admin password 123
+crypto key generate rsa
+1024
+line vty 0 4
+login local
+transport input ssh
+
 end
 wr mem
 
 
 ! =============== Distribute Tang 6 =============== !
+
 !swl3-1
 en
 conf t
+hostname DIS-6
+enable secret DIS-6
 
 ip routing
 
@@ -1193,6 +1275,17 @@ interface vlan 63
 standby 11 ip 10.43.66.254
 standby 11 priority 120
 standby 11 preempt
+
+
+! == SSH == !
+
+ip domain-name vku.domain
+username admin password 123
+crypto key generate rsa
+1024
+line vty 0 4
+login local
+transport input ssh
 
 end
 wr mem
