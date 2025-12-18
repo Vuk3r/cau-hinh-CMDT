@@ -10,10 +10,16 @@ name VLAN12-anninh
 vlan 13
 name VLAN13-kho
 
+interface range fa0/4-8
+switchport port-security
+switchport port-security maximum 2
+switchport port-security violation shutdown
+
 !pc + Access point + printer
 interface range fa0/4-6
 switchport mode access
 switchport access vlan 11
+
 no shutdown
 
 !pc 2
@@ -42,6 +48,11 @@ vlan 22
 name VLAN23-phapche
 vlan 23
 name VLAN22-ketoan
+
+interface range fa0/4-8
+switchport port-security
+switchport port-security maximum 2
+switchport port-security violation shutdown
 
 !pc + Access point + printer
 interface range fa0/4-6
@@ -79,6 +90,11 @@ vlan 33
 name VLAN31-sales
 
 
+interface range fa0/4-8
+switchport port-security
+switchport port-security maximum 2
+switchport port-security violation shutdown
+
 !pc + Access point + printer
 interface range fa0/4-6
 switchport mode access
@@ -106,6 +122,11 @@ no shutdown
 ! ======== switch tang 4 : ======== ! 
 en
 conf t
+
+interface range fa0/4-8
+switchport port-security
+switchport port-security maximum 2
+switchport port-security violation shutdown
 
 vlan 41
 name VLAN41-r&d
@@ -142,6 +163,11 @@ no shutdown
 en
 conf t
 
+interface range fa0/4-8
+switchport port-security
+switchport port-security maximum 2
+switchport port-security violation shutdown
+
 vlan 51
 name VLAN51-sanxuat
 vlan 52
@@ -176,6 +202,11 @@ no shutdown
 ! ======== switch tang 6 : ======== ! 
 en
 conf t
+
+interface range fa0/4-8
+switchport port-security
+switchport port-security maximum 2
+switchport port-security violation shutdown
 
 vlan 61
 name VLAN61-giamdoc

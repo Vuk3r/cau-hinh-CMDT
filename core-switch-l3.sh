@@ -47,6 +47,13 @@ network 10.43.207.252 0.0.0.3 area 0
 network 10.43.209.252 0.0.0.3 area 0
 network 10.43.211.252 0.0.0.3 area 0
 
+network 10.43.150.0 0.0.0.255 area 0
+network 10.43.151.0 0.0.0.255 area 0
+network 10.43.152.0 0.0.0.255 area 0
+network 10.43.153.0 0.0.0.255 area 0
+network 10.43.154.0 0.0.0.255 area 0
+network 10.43.155.0 0.0.0.255 area 0
+
 ip routing
 !tmp ip ra fw. chua co HSRP
 ip route 0.0.0.0 0.0.0.0 10.43.221.254 1
