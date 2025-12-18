@@ -528,6 +528,59 @@ ip helper-address 10.43.150.2
 interface vlan 33
 ip helper-address 10.43.150.2
 
+! ==== HSRP - DIS 3 ==== !
+
+! = TANG 1 = !
+interface vlan 11
+standby 11 ip 10.43.16.254
+standby 11 priority 110
+standby 11 preempt
+
+interface vlan 12
+standby 11 ip 10.43.17.254
+standby 11 priority 110
+standby 11 preempt
+
+interface vlan 13
+standby 11 ip 10.43.18.254
+standby 11 priority 110
+standby 11 preempt
+
+! = TANG 2 = !
+
+interface vlan 21
+standby 11 ip 10.43.24.254
+standby 11 priority 120
+standby 11 preempt
+
+interface vlan 22
+standby 11 ip 10.43.25.254
+standby 11 priority 120
+standby 11 preempt
+
+interface vlan 23
+standby 11 ip 10.43.26.254
+standby 11 priority 120
+standby 11 preempt
+
+! = TANG 3 = !
+
+interface vlan 31
+standby 11 ip 10.43.32.254
+standby 11 priority 100
+standby 11 preempt
+
+interface vlan 32
+standby 11 ip 10.43.33.254
+standby 11 priority 100
+standby 11 preempt
+
+interface vlan 33
+standby 11 ip 10.43.34.254
+standby 11 priority 100
+standby 11 preempt
+
+wr mem
 ! =============== Distribute Tang 4 =============== !
 !swl3-1
 en
@@ -652,8 +705,8 @@ network 10.43.56.0 0.0.3.255 area 0
 network 10.43.64.0 0.0.3.255 area 0 
 
 ! gui ra mang internet
-ip route 0.0.0.0 0.0.0.0 10.43.207.254 1
-ip route 0.0.0.0 0.0.0.0 10.43.208.254 10
+ip route 0.0.0.0 0.0.0.0 10.43.208.254 1
+ip route 0.0.0.0 0.0.0.0 10.43.207.254 10
 
 ! DHCP - ip helper for DHCP(10.43.150.2)
 interface vlan 41
@@ -682,51 +735,51 @@ ip helper-address 10.43.150.2
 ! = TANG 4 = !
 interface vlan 41
 standby 11 ip 10.43.48.254
-standby 11 priority 110
+standby 11 priority 120
 standby 11 preempt
 
 interface vlan 42
 standby 11 ip 10.43.49.254
-standby 11 priority 110
+standby 11 priority 120
 standby 11 preempt
 
 interface vlan 43
 standby 11 ip 10.43.50.254
-standby 11 priority 110
+standby 11 priority 120
 standby 11 preempt
 
 ! = TANG 5 = !
 
 interface vlan 51
 standby 11 ip 10.43.56.254
-standby 11 priority 100
+standby 11 priority 110
 standby 11 preempt
 
 interface vlan 52
 standby 11 ip 10.43.57.254
-standby 11 priority 100
+standby 11 priority 110
 standby 11 preempt
 
 interface vlan 53
 standby 11 ip 10.43.58.254
-standby 11 priority 100
+standby 11 priority 110
 standby 11 preempt
 
 ! = TANG 6 = !
 
 interface vlan 61
 standby 11 ip 10.43.64.254
-standby 11 priority 120
+standby 11 priority 100
 standby 11 preempt
 
 interface vlan 62
 standby 11 ip 10.43.65.254
-standby 11 priority 120
+standby 11 priority 100
 standby 11 preempt
 
 interface vlan 63
 standby 11 ip 10.43.66.254
-standby 11 priority 120
+standby 11 priority 100
 standby 11 preempt
 
 end
@@ -858,8 +911,8 @@ network 10.43.56.0 0.0.3.255 area 0
 network 10.43.64.0 0.0.3.255 area 0 
 
 ! gui ra mang internet
-ip route 0.0.0.0 0.0.0.0 10.43.209.254 1
-ip route 0.0.0.0 0.0.0.0 10.43.210.254 10
+ip route 0.0.0.0 0.0.0.0 10.43.210.254 1
+ip route 0.0.0.0 0.0.0.0 10.43.209.254 10
 
 ! DHCP - ip helper for DHCP(10.43.150.2)
 interface vlan 41
@@ -888,51 +941,51 @@ ip helper-address 10.43.150.2
 ! = TANG 4 = !
 interface vlan 41
 standby 11 ip 10.43.48.254
-standby 11 priority 110
+standby 11 priority 100
 standby 11 preempt
 
 interface vlan 42
 standby 11 ip 10.43.49.254
-standby 11 priority 110
+standby 11 priority 100
 standby 11 preempt
 
 interface vlan 43
 standby 11 ip 10.43.50.254
-standby 11 priority 110
+standby 11 priority 100
 standby 11 preempt
 
 ! = TANG 5 = !
 
 interface vlan 51
 standby 11 ip 10.43.56.254
-standby 11 priority 100
+standby 11 priority 120
 standby 11 preempt
 
 interface vlan 52
 standby 11 ip 10.43.57.254
-standby 11 priority 100
+standby 11 priority 120
 standby 11 preempt
 
 interface vlan 53
 standby 11 ip 10.43.58.254
-standby 11 priority 100
+standby 11 priority 120
 standby 11 preempt
 
 ! = TANG 6 = !
 
 interface vlan 61
 standby 11 ip 10.43.64.254
-standby 11 priority 120
+standby 11 priority 110
 standby 11 preempt
 
 interface vlan 62
 standby 11 ip 10.43.65.254
-standby 11 priority 120
+standby 11 priority 110
 standby 11 preempt
 
 interface vlan 63
 standby 11 ip 10.43.66.254
-standby 11 priority 120
+standby 11 priority 110
 standby 11 preempt
 
 end
@@ -1064,8 +1117,8 @@ network 10.43.56.0 0.0.3.255 area 0
 network 10.43.64.0 0.0.3.255 area 0 
 
 ! gui ra mang internet
-ip route 0.0.0.0 0.0.0.0 10.43.211.254 1
-ip route 0.0.0.0 0.0.0.0 10.43.212.254 10
+ip route 0.0.0.0 0.0.0.0 10.43.212.254 1
+ip route 0.0.0.0 0.0.0.0 10.43.211.254 10
 
 ! DHCP - ip helper for DHCP(10.43.150.2)
 interface vlan 41
@@ -1094,34 +1147,34 @@ ip helper-address 10.43.150.2
 ! = TANG 4 = !
 interface vlan 41
 standby 11 ip 10.43.48.254
-standby 11 priority 110
+standby 11 priority 100
 standby 11 preempt
 
 interface vlan 42
 standby 11 ip 10.43.49.254
-standby 11 priority 110
+standby 11 priority 100
 standby 11 preempt
 
 interface vlan 43
 standby 11 ip 10.43.50.254
-standby 11 priority 110
+standby 11 priority 100
 standby 11 preempt
 
 ! = TANG 5 = !
 
 interface vlan 51
 standby 11 ip 10.43.56.254
-standby 11 priority 100
+standby 11 priority 110
 standby 11 preempt
 
 interface vlan 52
 standby 11 ip 10.43.57.254
-standby 11 priority 100
+standby 11 priority 110
 standby 11 preempt
 
 interface vlan 53
 standby 11 ip 10.43.58.254
-standby 11 priority 100
+standby 11 priority 110
 standby 11 preempt
 
 ! = TANG 6 = !
